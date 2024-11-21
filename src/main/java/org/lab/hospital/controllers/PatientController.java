@@ -35,4 +35,16 @@ public class PatientController {
     public List<Patient> getPatientsByDateOfBirthRange(@RequestParam String startDate, @RequestParam String endDate) {
         return patientService.findByDateOfBirthRange(startDate, endDate);
     }
+    @PutMapping("/{id}")
+    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient updatedPatient) {
+        Patient patient = patientService.findById(id).orElseThrow();
+
+        // Update patient fields
+        if (updatedPatient.getName() != null) patient.setName(updatedPatient.getName());
+        if (updatedPatient.getDateOfBirth() != null) patient.setDateOfBirth(updatedPatient.getDateOfBirth());
+        if (updatedPatient.getAdmittingDoctor() != null) patient.setAdmittingDoctor(updatedPatient.getAdmittingDoctor());
+
+        return patientService.save(patient);
+    }
+
 }

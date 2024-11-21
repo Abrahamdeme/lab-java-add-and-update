@@ -36,4 +36,11 @@ public class EmployeeController {
         employee.setStatus(status);
         return employeeService.save(employee);
     }
+    @PatchMapping("/{id}/department")
+    public Employee updateDepartment(@PathVariable Long id, @RequestBody String department) {
+        Employee employee = employeeService.findById(id).orElseThrow();
+        employee.setDepartment(department);
+        return employeeService.save(employee);
+    }
+
 }

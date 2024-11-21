@@ -26,4 +26,11 @@ public class Patient {
     public Patient() {
 
     }
+
+    public String getAdmittingDoctor() {
+        return String.valueOf(false);
+    }
+
+    public void setAdmittingDoctor(String admittingDoctor) {
+    }
 }
