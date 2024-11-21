@@ -1,4 +1,4 @@
-
+README Short Answer Questions
 
 Did you use the same type of route to update patient information as to update an employee's department?
 - No, I used `PUT` for patient information because it involves multiple fields, and `PATCH` for employee's department since it changes only one field.
